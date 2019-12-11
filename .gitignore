@@ -1,0 +1,13 @@
+#configure file
+configure.php
+
+#log files
+log/*
+
+#tmp dir
+tmp/*
+
+#emacs
+*~
+\#*\#
+

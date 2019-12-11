@@ -1,0 +1,1046 @@
+{
+	margin: 0;
+	padding: 0;
+}
+html, body
+{
+	color: #000000;
+	font-family: arial, helvetica, sans-serif;
+	padding: 0px;
+	margin: 0px;
+	width: 100%;
+	height: 100%;
+	min-height: 100%;
+	overflow:hidden;
+}
+img {
+	border: 0;
+}
+h1 {
+    color:#3b87a4;
+    font-size:1.8em;
+    font-weight:normal;
+    margin:0;
+}
+h2 {
+    color:#3b87a4;
+    font-size:1.4em;
+    font-weight:normal;
+}
+h3 {
+ font-size:1em;
+ color: #555555;
+ margin:0px;
+}
+a {
+    text-decoration: none;
+    color: #666666;
+}
+a:hover {
+    color: #ff6600;
+}
+/* FONTS */
+.smallText {
+	font-size: .75em;
+	font-weight: normal;
+}
+.smallishText {
+	font-size: .8em;
+}
+.medText {
+	font-size: .85em;
+}
+.purpleText {
+	color: #2e0854;
+}
+.orangeText {
+	color: #c73f17;
+}
+.upcSmall {
+   font-size: .7em;
+}
+.upcBig {
+   font-size: 1.2em;
+}
+.upcSmallGray {
+    color: #888888;
+    font-size: .75em;
+}
+.upcHighlightText {
+    color: #666666;
+    font-weight: bold;
+    font-size: .8em;
+}
+.shadow {
+  -moz-box-shadow:    2px 2px 4px 2px #333;
+  -webkit-box-shadow: 2px 2px 4px 2px #333;
+  box-shadow:         2px 2px 4px 2px #333;
+}
+/* HEADER */
+#banner {
+	height: 80px;
+	padding: 0;
+	margin: 0px 0px 5px 0px;
+	width: 100%;
+}
+#usgsLogo {
+	margin: 5px 0px 0px 5px;
+	float: left;
+	height: 70px;
+	width: 180px;
+	background: url(../images/usgs-logo-white2.png) no-repeat; 
+}
+#bannerLogo {
+	text-align: center;
+	margin-right: 150px;
+}
+#nasaLogo {
+	position:absolute;
+	right: 10px;
+	top: 10px;
+}
+#pdsImagingNode {
+		float:right;
+		color:white;
+		padding:15px 0px 0px 5px;
+		text-shadow: 1px 1px 2px #888;	 
+		-moz-text-shadow: 1px 1px 2px #888;	 
+}
+/* CONTENT AREA */
+#wrapper {
+	background: url(../images/pilot3-paper-bg.jpg); 
+	min-height: 100%;
+	width: 100%;
+	position: absolute;
+}
+#container {
+	padding: 0px 0px 0px 15px;
+	vertical-align:     top;
+  	border-right: 0px solid #46290b;
+	height: 100%;
+        min-height: 100%;
+}
+#left {
+    padding: 0px 0px 10px 0px;
+    float: left;
+    width: 50%;
+    margin: 0px 10px 0px 10px;
+}
+#downloadPanel {
+    background: #ffffff;
+    padding: 10px 20px 20px 20px;
+    height: 100%;
+    overflow: auto;
+}
+#right {
+	width: 48%;
+	float: left;
+	margin: 0px 0px 10px 0px;
+	background: #ffffff;
+	overflow: hidden;
+}
+
+#rightContent, #infoContent {
+	background: #ffffff;
+}
+#nearRight {
+	float:right;
+	width: 100%;
+	background: #fff;
+}
+#farRight {
+	float: left;
+	display: none;
+	width: 0px;
+}
+#bottomRight {
+	     display: none;
+	     height: 0px;
+	     width: 100%;
+	     clear: both;
+	     border-top: solid #888888 1px;
+}
+#pilotInfoContainer {
+	font-size: .65em;
+	overflow: auto;
+	background: #CCCCFF;
+	border-right: 2px solid #aaaaaa;
+}
+/* FOOTER */
+#footer {
+    width: 100%;
+    color: #eeeeee;	
+    font-size: .9em;
+    clear: both;
+    font-weight: bold;
+    height: 40px;
+    background-color:rgba(0,0,0,0.1);
+}
+.footerLeft {
+    float: left;
+    margin: 0px 5px 5px 10px;
+    padding: 2px;
+    color: #fff;
+}
+.footerLeft a {
+    text-decoration: none;
+    color: #fff;
+    font-size: .8em;
+}
+.footerCredit {
+   color: #fff;
+   font-size: .7em;
+}
+.footerRight {
+   float: right;
+   margin: 10px 40px 10px 10px;
+}
+/* LEFT BAR */
+#totalButton {
+	float:right;
+	margin: 3px 5px 0px 0px;
+	height: 30px;
+	width: 43px;
+	position: relative;
+}
+.totalButtonCold {
+	background: url(../images/search.png) no-repeat;
+}
+.totalButtonHot {
+	background: url(../images/search-hot.png) no-repeat;
+	cursor: pointer;
+}
+.totalButtonHot:hover {
+	background: url(../images/search-hover.png) no-repeat;	
+}
+.totalButtonAbort {
+	background: url(../images/search-abort.png) no-repeat;
+	cursor: pointer;
+	height: 29px;
+	width: 40px;
+}
+#missionsText {
+	margin: 10px 30px 5px 0px;
+	float:left;
+	color: #666666;
+}
+#missionsIcon {
+	height: 30px;
+	width: 30px;
+	float:left;
+	display: none;
+	margin: 2px 5px 0px 0px;
+}
+#solarSystemReturn {
+	cursor: pointer;
+	float:left;
+	color: #666666;
+	margin: 20px 3px 0px 0px;
+	line-height: .9em;
+	font-size: .7em;
+	font-weight: normal;
+	display: none;
+	text-decoration: underline;
+}
+#solarSystemReturn:hover {
+	color: #ff9900;
+}
+.buttonText {
+	padding: 0px 0px 0px 0px;
+        font-size: .8em;
+	color: #555555;
+	vertical-align: 75%;
+}
+/* TABS */
+#tabs {
+    margin: 0px;
+    font-size: 1em;
+}
+#tabs.ui-widget-content {
+    border: none; 
+}
+#tabsUL, #mapTab, #missionsTab, #constrainTab, #solarSystemTab, #stereoTab {
+  -moz-border-radius-bottomright: 0px; -webkit-border-bottom-right-radius: 0px; -khtml-border-bottom-right-radius: 0px; border-bottom-right-radius: 0px;
+  -moz-border-radius-bottomleft: 0px; -webkit-border-bottom-left-radius: 0px; -khtml-border-bottom-left-radius: 0px; border-bottom-left-radius: 0px;
+  -moz-border-radius-topright: 0px; -webkit-border-top-right-radius: 0px; -khtml-border-top-right-radius: 0px; border-top-right-radius: 0px;
+  -moz-border-radius-topleft: 0px; -webkit-border-top-left-radius: 0px; -khtml-border-top-left-radius: 0px; border-top-left-radius: 0px;
+ }
+div.ui-tabs {
+    padding: 0px;
+}
+div.ui-tabs .ui-tabs-nav {
+    padding-left: 0.8em;
+}
+.ui-tabs-nav a {
+    font-size: .8em;
+    color: #888888;
+}
+#missionsTab, #constrainTab, #mapTab, #stereoTab {
+	background: #ffffff;
+        overflow: auto;
+}
+#solarSystemTab {
+    background: url("../images/apollo-cockpit.png") right bottom no-repeat; 
+    overflow: auto;		
+}
+#solarSystemNav, #missionNav, #mapNav, #constrainNav, #stereoNav {
+	display:none;
+	margin-top: 5px;
+}
+#missionNav a, #mapNav a, #constrainNav a, #stereoNav a {
+	color: #666666;
+	font-size: .75em;
+}
+#solarSystemPanelTitle, #missionPanelTitle, #constrainPanelTitle, #mapPanelTitle, #stereoPanelTitle {
+	font-size: .8em;
+	color: #666666;
+	float: left;
+	width: 100%;
+}
+/* SOLAR SYSTEM TAB */
+.hotspot {
+	 width: 20px;
+	 height: 20px;
+	 position: absolute;
+	 bottom: 136px;
+	 right: 155px;
+}
+.planetSpan {
+    font-size: .9em;
+    color: #000000;
+    background: #ffffff;
+}
+.planetSpan span:hover {
+    cursor: pointer;
+    color: #ff6600;
+}
+#barChooserMid, #barChooserRight, #barChooserLeft {
+        width:192px;
+        float:left;
+	padding: 0px 0px 0px 5px;
+	z-index: 100;
+}
+.barPlanet {
+	height: 20px;
+	font-size: 1.1em;
+	font-weight: bold;
+	display: block;
+	margin-top: 10px;
+}
+.barMoon {
+	color: #555555;
+	margin-left: 20px;
+}
+/* MISSION TAB */
+.barMission {
+	display: block;
+	color: #555555;
+	font-weight:bold;
+	font-size: .8em;
+	float:left;
+	margin: 2px;
+}
+.barInstrument {
+	color: #555555;
+	font-size: .75em;
+	white-space: nowrap;
+	clear:left;
+}
+.targetTitle {
+	color: #330066;
+	cursor: pointer;
+	font-size: .8em;
+}
+.targetTitle:hover {
+	color: #ff9900;
+}
+.targetTitleCold {
+	color: #330066;
+	font-size: .8em;
+}
+#missionTable {
+	width: 100%;
+}
+#missionTable tr td {
+	padding: 0px 2px 0px 0px;
+        whitespace: nowrap;
+}
+#missionList {
+	height: auto;
+	clear: both;
+}
+.instrumentMain {
+	background: #ffbb88;
+}
+.instrumentWhite {
+	background: #ffffff;
+	padding:4px 0px 0px 0px;
+}
+.instrumentGray {
+	background: #eeeeee;
+	padding:4px 2px 0px 2px;
+}
+.pilotWrenchDisabled {
+	background: url(../images/wrench-disabled.gif) no-repeat;
+	width:24px;
+	height:15px;
+	float:left;
+}
+.pilotWrench {
+	background: url(../images/wrench.gif) no-repeat;
+	width:24px;
+	height:15px;
+	cursor: pointer;
+	float:left;
+}
+.pilotLog {
+	background: url(../images/stats.gif) no-repeat;
+	width:24px;
+	height:15px;
+	cursor: pointer;
+	float:left;
+}
+.missionIcon {
+	width: 16px;
+	height: 16px;
+	margin: 0px 5px 0px 0px;
+}
+/* MAP TAB */
+#map {
+	height:100%;
+	width:100%;
+	min-height: 350px;
+	border:solid 3px #ccccff;
+	background: #000000;
+}
+#map::selection, #map *::selection {
+		 background: transparent;
+}
+#mapLoader {
+	margin: 10px;
+}
+.upcHolderTable {
+    width: 100%;
+    height: 100%;
+    border-spacing: 0px;
+    border: none;
+    padding: 0px;
+}
+.upcHolderTable tr td {
+    border: none;
+    padding: 0px;
+    margin: 0px;
+}
+.upcMapHolderTopLeft {
+    width: 10px;
+    height: 10px;
+    background: url("../images/frameTopLeft.png") no-repeat;
+}
+.upcMapHolderMidTop {
+    height: 10px;
+    background: url("../images/frameMidTop.png") repeat-x; 
+}
+.upcMapHolderTopRight {
+    width: 10px;
+    height: 10px;
+    background: url("../images/frameTopRight.png") no-repeat; */
+}
+.upcMapHolderMidLeft {
+    width: 10px;
+    background: url("../images/frameMidLeft.png") repeat-y;
+}
+.upcMapHolderMidRight {
+    width: 10px;
+    background: url("../images/frameMidRight.png") repeat-y; 
+}
+.upcMapHolderBottomLeft {
+    width: 10px;
+    height: 10px;
+    background: url("../images/frameBottomLeft.png") no-repeat;
+}
+.upcMapHolderMidBottom {
+    height: 10px;
+    background: url("../images/frameMidBottom.png") repeat-x; 
+}
+.upcMapHolderBottomRight {
+    width: 10px;
+    height: 10px;
+    background: url("../images/frameBottomRight.png") no-repeat; */
+}
+#pilotSetBounds {
+    text-align: center;
+    font-size: .9em;
+}
+.upcLatLonCenterBox {
+    text-align: center;
+    font-size: .65em;
+    clear: both;
+}
+.upcLatLonLeftBox {
+    font-size: .65em;
+    float: left;
+    margin: -10px 0px -10px 5px;
+    text-align: left;
+}
+.upcLatLonRightBox {
+    font-size: .65em;
+    float: right;
+    margin: -10px 5px -10px 0px;
+    text-align: right;
+}
+#upcFeatureType {
+    width: 85px;
+    margin: 0px 0px 5px 0px;
+    font-size: .7em;
+}
+#upcFeatureName {
+    margin: 0px 0px 5px 10px;
+    width: 85px;
+    font-size: .7em;
+}
+.upcTextArea, #upcMapTemplate {
+    margin: 0px 0px 5px 0px;
+    clear: both;
+    overflow: auto;
+}
+#pilotBBClear, #pilotBBViewport {
+    font-size: .65em;
+}
+/* ASTROWEBMAPS OVERWRITES */
+#mapBottom {
+ width: 100%;
+ height: 70px;
+ border-spacing: 0px;
+}
+.astroConsole {
+	width: 165px;
+	height: 85px;
+	background: #dddddd;
+	padding: 5px;
+	margin: 5px 5px 5px 0px;
+	float: left;
+}
+.astroConsoleTargetName {
+	display: none;
+}
+#astroConsoleTargetImage {
+	display: none;
+}
+.astroConsoleLonLatTitle {
+	font-size: .7em;
+	float:left;
+}
+#astroConsoleLonLat {
+	font-size: .75em;
+	width: 100px;
+	float: left;
+	font-weight: bold;
+	display: block;
+	background: #eeeeee;
+}
+#astroConsoleLonLatSelects {
+	font-size: .7em;
+	float: left;
+	margin: 5px;
+}
+#astroConsoleLonLatSelects select {
+   width: 100px;
+}
+#astroConsoleProjectionButtons {
+ clear: both;
+ float: left;
+ margin: 5px 0px 0px 0px;
+}
+#astroConsoleProjectionButtons img {
+ clear: both;
+ float: left;
+ cursor: pointer;
+ margin: 1px 10px 1px 0px;
+}
+div#astroConsoleKey {
+    left: 320px;
+    width: 250px;
+}
+div.astroConsoleKeyDiv {
+    width: 85px;
+}
+.astroConsoleDrawButtonDiv {
+	margin:5px 0px 0px 0px;
+	width:50px;
+	height: 25px;
+	float:left;
+}
+.astroConsoleDrawButton {
+	cursor: pointer;
+	margin: 5px 2px 0px 0px;
+}
+div.olControlPanel {
+  margin: 145px 15px 15px 15px;
+}
+div.olControlPanZoom {
+   display: block;
+}  
+/* ADVANCED AND STEREO TAB */
+#constrainTabs {
+	display: inline-block;
+	width: 100%;
+	font-size: .9em;
+	padding: 0px 0px 15px 0px;
+	min-height: 90%;
+}
+#constrainTabs input, #stereoTab input {
+  font-size: .75em;
+}
+#constrainTabs ul {
+  background: #ccccff;
+}
+#constrainTabs li {
+    font-size: 1em;
+}
+#constrainTabs li a {
+	color: #666666;
+	font-size: .75em;
+}
+div.ui-datepicker {
+    font-size: .9em;
+}
+.slideLeft{
+	clear: both;
+	float:left;
+}
+.slideRight {
+	margin: 5px;
+	width: 200px;
+	float: right;
+}
+.filter {
+  width: 150px;
+}
+.sliderDiv {
+   margin: 5px 0px 20px 0px;
+}
+.sliderInputs {
+   width: 58px;
+}
+#pilotStats {
+	     width: 320px;
+}
+#pilotStatsHeader {
+	float: left;
+	margin: 10px 0px 0px 10px;
+}
+.statsIcon {
+	margin: 0px 0px 0px 10px;
+	cursor: pointer;
+}
+.statsTitle {
+   margin: 10px 0px 0px 10px;	
+}
+.infoLinkIcon {
+	margin: 0px 0px 0px 10px;
+	cursor: pointer;
+	vertical-align: bottom;
+}
+.popSparkDiv {
+	background: url(../images/bar-years-moon.png);
+	height: 40px;
+	width: 280px;
+	margin: 0px 10px 0px 10px;
+	overflow: auto;
+}
+.advTitleSelects {
+	margin: 15px 0px 0px 0px;
+}
+.advText {
+}
+.boldOption {
+	    font-weight:bold;
+}
+select.advTextSearch {
+	font-size: .8em !important;
+	margin: 2px 0px 3px 0px;
+	width: 150px;
+}
+.advClearButton {
+	right: 100px;
+	clear: both;
+	margin: 20px 20px 0px 0px;
+}
+.stereoMatcherButton {
+   display: block;
+   clear: both;
+   margin: 20px 0px 0px 0px;
+}
+/*** DRAG DIVS ***/
+#pilotBigImage, #pilotStats {
+    display: none;
+    position: absolute;
+    top: 50px;
+    z-index: 9999;
+    right: 100px;
+}
+.oldjqstooltip {
+  z-index: 1000;
+ }
+#pilotBigImageContainer, #pilotStatsContainer {
+    overflow: auto;
+    clear: both;
+}
+#pilotBigImageDiv {
+    background: #eee;		      
+}
+#pilotStatsDiv {
+	background: #eee;
+}
+#upcMoreInfoDragImageDiv, #pilotStatsControl {
+    float: right;
+    margin-right: 10px;
+}
+#upcMoreInfoProductName {
+    font-size: 13px;
+    float: left;
+    white-space: nowrap;
+}
+.upcMoreInfoButtons {
+    margin: 5px 5px 10px 0px;
+}
+.upcThumbnailFootprint {
+    margin: 10px 20px 10px 20px;
+    clear: both;
+}
+.stereoCarousel {
+    margin: 5px; 
+}
+.stereoId {
+  cursor: pointer;
+}
+.stereoId:hover {
+	color: #ff9900;
+}
+.stereoIcon {
+  margin: -10px 0px 0px 5px;
+  cursor: pointer;
+}
+/* RIGHT BAR */
+.panelBar {
+	width:100%;
+	height:40px;
+        border-bottom: 1px solid #888888;
+	font-weight: bold;
+	color: #666666;
+        background: #cccccc url(../js/jquery/jquery-ui-1.10.1.custom/css/custom-theme/images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x;
+}
+#totalBox, #stereoBox {
+	float: left;
+	padding: 7px;
+}
+#stereoBox {
+	   width: 98%;
+}
+#totalTitle, #stereoTitle {
+	color: #888888;
+}
+#groupbyBox {
+	float:right;
+	margin: 8px 2px 0px 0px;
+}
+.panelSubTitle, #panelGroupBy {
+	font-size: .7em;
+	color: #666666;
+}
+#panelGroupBy {
+	width: 100px;
+	margin: 0px 5px 0px 0px;
+}
+#cropButtonDiv {
+  padding: 10px 10px 0px 0px;
+  float:right;
+}
+#cropButton {
+  cursor: pointer;
+}
+#searchBoxes {
+	display: none;
+}
+.selectBox {
+	margin: 6px 10px 0px 0px;
+	padding: 3px;
+	border: 1px solid #aaaaaa;
+	background: #eeeeee;
+	float: right;
+}
+
+.selectButton {
+	cursor: pointer;
+}
+/* RIGHT PANEL */
+#upcCarousel {
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+.upcCarouselImageDiv {
+    float: left;
+    height: 100px;
+    width: 110px;
+    overflow: hidden;
+    margin: 0px 5px 0px 5px;
+    cursor: pointer;
+}
+.upcCarouselMattDiv {
+   background: #eeeeee;	
+   height: 100px;
+   width: 100px;
+   overflow: hidden;	
+}
+.upcCarouselInfo {
+    float: left;
+    padding: 0px;
+    width: 110px;
+    overflow: hidden;
+}
+.upcCarouselDiv {
+    background: #ffffff;
+    width: 120px;
+    height: 130px;
+    margin: auto;
+    overflow: hidden;
+    whitespace: nowrap;
+    float: left;
+}
+.upcCarouselDivHot {
+    background: #ccccff;
+    width: 120px;
+    height: 130px;
+    margin: auto;
+    overflow: hidden;
+    float: left;
+}
+.upcCarouselDivStereo {
+    background: #f4a460;
+    width: 120px;
+    height: 130px;
+    margin: auto;
+    overflow: hidden;
+    float: left;
+}
+.upcCarouselLinks {
+    font-size: .7em;
+    margin: 0px 0px 0px 5px;
+}
+.upcCarouselLink img {
+    vertical-align: text-bottom;
+}
+.upcCarouselLink span:hover {
+    background: #f8972a;
+}
+.pilotSearchCheckbox {
+  margin-left: 0px;
+}
+#loadingImg {
+	clear: both;
+	float: left;
+	margin: 10px;
+}
+#pilotAbortMessage, #pilotHelpMessage {
+	margin: 10px;
+	padding: 10px;
+}
+#pilotNews {
+	background: #ccccff;
+	padding: 10px;
+	height: 100%;
+}
+.pilotNewsItem {
+	margin: 10px 0px 0px 0px;
+	padding: 10px;
+	background: #eeeeee;
+	border: 2px solid #ffffff;
+}
+.pilotNewsItem a {
+    font-weight: bold;
+}
+/* NEAR RIGHT */
+.closeInfo, .closeStereo {
+    top: 0;
+    right: 0;
+    float: right;
+    z-index: 9999;
+    background: #ffffff;
+    cursor: pointer;
+    font-size: 1em;
+    margin: 5px;
+    padding: 2px 5px 2px 5px;
+    border: 2px solid #cccccc;
+    font-weight: bold;
+}
+.closeStereo {
+   margin: 0px;
+}
+.closeInfo:hover, .closeStereo:hover {
+   color: #ff6600;
+}
+.stereoOrderBox {
+	  float: right;
+	  right: 50px;
+	  margin-right: 10px;
+}
+.stereoLink {
+	cursor: pointer;
+}
+.stereoLink:hover {
+   color: #ff6600 !important;
+}
+#stereoSliders {
+	      margin: 20px 10px 10px 10px;
+}
+.stereoSlideLeft{
+	width: 55%;
+	clear: both;
+	float:left;
+	font-size: .9em;
+}
+.stereoSlideRight {
+	margin: 5px;
+	width: 35%;
+	float: right;
+}
+#stereoGray {
+	position: absolute;
+	z-index: 1000;
+}
+.stereoNote {
+    font-size: .6em;
+    color: #888888;
+}
+.stereoHighlight {
+	 background: #ffd700 !important;
+}
+/* POW DIALOG BOX */
+#powDownloadDiv {
+	font-size: .85em;
+}
+/* GLOBAL SEARCH */
+#upcSearchIdDiv {
+	position: absolute;
+	top: 10px;
+	right: 110px;
+}
+#upcSearchId {
+	font-size: .7em;
+	color: #666666;
+	border: 2px solid #888888;
+	vertical-align: bottom;
+}
+#upcSearchIdButton {
+	height: 20px;
+	vertical-align: bottom;
+}
+#searchBox {
+    margin: 50px 0px 0px 0px;
+    padding: 5px;
+    font-size: .9em;
+}
+*+html #searchBox {
+    padding: 0px;
+}
+#searchWidget {
+	float: right;
+}
+#searchBox input {
+    font-size: 11px;
+}
+#upcSearchSelect {
+    margin-bottom: 2px;
+}
+/* STEREO TAB */
+#stereoBuffer {
+    height: 5px;
+    background: url("../images/frameMidTop.png") repeat-x; 
+}
+#stereoMatches {
+    overflow: auto;
+    height: 100%;
+    width: 100%;
+    float: left;
+}
+.intersectWhite, .intersectGray {
+    float:left;
+    clear: both;
+    width: 98%;
+    padding: 5px;
+}
+.intersectWhite {
+	background: #ffffff;
+}
+.intersectGray {
+	background: #eeeeee;
+}
+
+/* SMALL SCREEN TWEAKS */
+@media screen and (max-width:1210px) {
+#right {
+	width: 45%;
+}
+.screen-only {
+	display: none;
+}
+#missionsTabImg, #mapTabImg, #constrainTabImg, #stereoTabImg {
+	margin: 3px 0px 0px 0px;
+}
+}
+@media screen and (max-width:1040px) {
+.screen-only {
+	display: inline;
+}
+#wrapper {
+	background: url(../images/pilot3-paper-bg.jpg); 
+	height: 100%;
+	width: 100%;
+	overflow: auto;
+	position: absolute;
+}
+#left {
+    padding: 0px 0px 10px 0px;
+    float: left;
+    width: 100%;
+    margin: 0px 10px 10px 0px;
+}
+#missionsText {
+	      font-size: .9em;
+}
+#right {
+	width: 100%;
+}
+#usgsLogo {
+	margin: 5px 0px 0px 5px;
+	float: left;
+	height: 40px;
+	width: 40px;
+	background: url(../images/usgs_logo_white.png) no-repeat; 
+}
+#nasaLogo img {
+	height: 50px;
+}
+#pdsImagingNode {
+	display:none; 
+}
+}
+@media screen and (max-width:600px) {
+.screen-only {
+	display: none;
+}
+#usgsLogo, #nasaLogo {
+	display: none;
+}
+#missionsTabImg, #mapTabImg, #constrainTabImg, #stereoTabImg {
+	margin: 3px 0px 0px 0px;
+}
+.layersDiv {
+	   background: #eeeeee;
+	   padding: 5px;
+}
+#missionsText {
+	      font-size: .8em;
+}
+}
