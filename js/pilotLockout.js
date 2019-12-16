@@ -38,7 +38,7 @@ PilotLockout.prototype.on = function(name, gray) {
     document.getElementsByTagName('body')[0].appendChild(this.lockoutDivs[name]);
     document.getElementById('lockoutDiv' + name).innerHTML = '&nbsp;';
   }
-  console.log('lockout on ' + name);
+  //console.log('lockout on ' + name);
 };
 
 /*
@@ -52,5 +52,5 @@ PilotLockout.prototype.off = function(name) {
     document.getElementsByTagName('body')[0].removeChild(this.lockoutDivs[name]);
     this.lockoutDivs[name] = null;
   }
-  console.log('lockout off ' + name);
+  //console.log('lockout off ' + name);
 };

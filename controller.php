@@ -27,6 +27,7 @@ class UpcqueryController {
   var $cssArray = array();
   var $scriptArray = array();
   var $errorText;
+  var $analyticsTag;
 
   //search only variables
   var $target; //target
@@ -57,19 +58,20 @@ class UpcqueryController {
   //
   function configPage($act) {
 
+    $config = new Config(); 
+    $this->analyticsTag = (isset($config->analyticsTag)) ? $config->analyticsTag : '';
+
     //model
     $this->model = new upcQuery($this->target);
 
     switch ($this->view) {
     case 'downloads':
-      $config = new Config(); 
       $this->scriptArray[] = $config->jqueryURL;
       $statsHelper = new StatsHelper();
       $this->model->stats = $statsHelper->getStats();
       $this->model->statsJSON = $statsHelper->getJSONStats();
       break;
     case 'faq':
-      $config = new Config(); 
       $this->scriptArray[] = $config->jqueryURL;
       break;
     case 'map':  //deprecated
@@ -82,7 +84,6 @@ class UpcqueryController {
       $instrumentsHelper = new InstrumentsHelper();
       $this->model->missionLinks = $instrumentsHelper->getMissionLinks();
 
-      $config = new Config(); 
       $this->powURL = $config->powURL;
 
       $this->cssArray[] = $config->jqueryuiCSS;
