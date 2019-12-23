@@ -13,3 +13,20 @@ Cartography and Imaging Science Node.
 * PostgreSQL with PostGIS spatial extension
 * USGS-Astrogeology distribution of AstroWebMaps
 * A footprint database based on the UPC schema
+
+# Install
+
+* Download the repository
+* At the top level of pilot, download https://github.com/USGS-Astrogeology/AstroWebMaps
+* Copy the file configure-EDIT.php to configure.php. Edit the config fields.
+  * Set database parameters. PILOT requires a database based on the UPC scheam.
+  * PILOT can search up to three databases. The current UPC search database is split into three different parts (Mars, Moon, the rest of the solar system).
+  * If you are using a single database in the UPC schema, use the same parameters for each database.
+  * Astrogeology URL's should work unless you are setting up the site on internal network.
+  * Jquery libs are included in the download.
+  * Map libs should point to the downloaded AstroWebMaps. The path may need to be tweaked.
+* One javascript file must be tweaked to set image path: js/pilotPanels.js. Set imagePath on line 372. It should point to the image directory inside the downloaded AstroWebMaps.
+
+Note: a new schema for the UPC is in development.  PILOT is going through a major version change to reflect these changes.
+  
+  
