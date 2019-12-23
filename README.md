@@ -26,6 +26,8 @@ Cartography and Imaging Science Node.
   * Jquery libs are included in the download.
   * Map libs should point to the downloaded AstroWebMaps. The path may need to be tweaked.
 * One javascript file must be tweaked to set image path: js/pilotPanels.js. Set imagePath on line 372. It should point to the image directory inside the downloaded AstroWebMaps.
+* On the top level of pilot, add a web-writable "log" to log the queries.
+* On the top level of pilot, add a web-writable "tmp" directory. This is for storing downloadable CSV or script files.
 
 Note: a new schema for the UPC is in development.  PILOT is going through a major version change to reflect these changes.
   
