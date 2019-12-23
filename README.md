@@ -19,7 +19,7 @@ Cartography and Imaging Science Node.
 * Download the repository
 * At the top level of pilot, download https://github.com/USGS-Astrogeology/AstroWebMaps
 * Copy the file configure-EDIT.php to configure.php. Edit the config fields.
-  * Set database parameters. PILOT requires a database based on the UPC scheam.
+  * Set database parameters. PILOT requires a database based on the UPC schema.
   * PILOT can search up to three databases. The current UPC search database is split into three different parts (Mars, Moon, the rest of the solar system).
   * If you are using a single database in the UPC schema, use the same parameters for each database.
   * Astrogeology URL's should work unless you are setting up the site on internal network.
