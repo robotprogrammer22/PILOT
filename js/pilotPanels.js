@@ -370,7 +370,8 @@ function showMap() {
     defaultCenterLat: 0,
     defaultCenterLon: 180,
     //imagePath: 'AstroWebMaps/images/'
-    imagePath: '/astrowebmaps-git/images/',
+    //imagePath: '/astrowebmaps-git/images/',
+    imagePath: '/pilotR/PILOT/AstroWebMaps-master/images/',
     projectionSwitchTrigger: pilotProjectionSwitchTrigger
   };
 
