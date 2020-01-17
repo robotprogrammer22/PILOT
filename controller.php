@@ -97,7 +97,8 @@ class UpcqueryController {
       $this->scriptArray[] = 'js/pilotSearch.js';
       $this->scriptArray[] = 'js/pilotConstrain.js';
       $this->scriptArray[] = 'js/pilotStereo.js';
-      die("I am here");
+      //die("I am here");
+      //echo("new page");
       break;
     case 'map':  //deprecated
     case 'planets':
