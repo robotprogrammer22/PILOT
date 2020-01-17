@@ -6,7 +6,7 @@
 
 */
 
-require_once(dirname(__FILE__) . "/model/upcquery.php"); 
+require_once(dirname(__FILE__) . "/model/upcquery.php");
 require_once(dirname(__FILE__) . '/model/targets_metaHelper.php');
 require_once(dirname(__FILE__) . '/model/limits_helper.php');
 require_once(dirname(__FILE__) . '/model/bands_helper.php');
@@ -58,7 +58,7 @@ class UpcqueryController {
   //
   function configPage($act) {
 
-    $config = new Config(); 
+    $config = new Config();
     $this->analyticsTag = (isset($config->analyticsTag)) ? $config->analyticsTag : '';
 
     //model
@@ -73,6 +73,31 @@ class UpcqueryController {
       break;
     case 'faq':
       $this->scriptArray[] = $config->jqueryURL;
+      break;
+    case ‘new_planets’:
+      $this->view = 'planets';
+      $statsHelper = new StatsHelper();
+      $this->model->stats = $statsHelper->getStats();
+      $this->model->statsJSON = $statsHelper->getJSONStats();
+      $instrumentsHelper = new InstrumentsHelper();
+      $this->model->missionLinks = $instrumentsHelper->getMissionLinks();
+
+      $this->powURL = $config->powURL;
+
+      $this->cssArray[] = $config->jqueryuiCSS;
+      $this->cssArray[] = $config->openLayersCSS;
+      $this->cssArray[] = $config->openLayersCSS2;
+
+      $this->scriptArray[] = $config->jqueryURL;
+      $this->scriptArray[] = $config->jqueryuiURL;
+      $this->scriptArray[] = $config->sparklineURL;
+      $this->scriptArray[] = 'js/pilotLockout.js';
+      $this->scriptArray[] = 'js/pilotPanels.js';
+      $this->scriptArray[] = 'js/pilotAJAX.js';
+      $this->scriptArray[] = 'js/pilotSearch.js';
+      $this->scriptArray[] = 'js/pilotConstrain.js';
+      $this->scriptArray[] = 'js/pilotStereo.js';
+      die("I am here");
       break;
     case 'map':  //deprecated
     case 'planets':
@@ -167,7 +192,7 @@ class UpcqueryController {
   //
   function results() {
 
-    $returnData['step'] = (isset($this->model->step)) ? $this->model->step : 1; 
+    $returnData['step'] = (isset($this->model->step)) ? $this->model->step : 1;
     $returnData['groupBy'] = $this->model->groupBy;
     $totalTime = 0;
     //    if (!isset($this->model->step) || ($this->model->step == 1)) {
@@ -181,7 +206,7 @@ class UpcqueryController {
 
     require_once(dirname(__FILE__) . '/model/hashResults.php' );
     $hash = new hashResults($this->model);
-    $returnData['images'] = $hash->get();    
+    $returnData['images'] = $hash->get();
     //$returnData['footprints'] = $hash->footprints;
     //$returnData['resultKeys'] = $this->model->resultKeys;
 
@@ -195,7 +220,7 @@ class UpcqueryController {
 
   //
   function resultsAjaxGet() {
-    
+
     //json format the results, send back to browser
     require_once(dirname(__FILE__) . '/tools/json.php' );
     echo json_encode($this->results());
@@ -283,7 +308,7 @@ class UpcqueryController {
     $datafilesHelper = new datafilesHelper($this->target);
     $datafilesHelper->getImageFromUpcId($this->model->upcid);
     $output = $datafilesHelper->getJSONRecord();
-    echo $output;  
+    echo $output;
     die();
   }
 
@@ -293,7 +318,7 @@ class UpcqueryController {
     $datafilesHelper = new datafilesHelper($this->target);
     $datafilesHelper->getImageFromUpcId($this->model->upcid, true);
     $output = $datafilesHelper->getJSONRecord();
-    echo $output;  
+    echo $output;
     die();
   }
 
@@ -303,7 +328,7 @@ class UpcqueryController {
 
     $nomenHelper = new NomenclatureHelper();
     $json = json_encode($nomenHelper->getFeatureTypes($this->target));
-    echo $json;  
+    echo $json;
     die();
   }
 
@@ -313,7 +338,7 @@ class UpcqueryController {
 
     $nomenHelper = new NomenclatureHelper();
     $json = $nomenHelper->getFeatureNames($this->target, $_REQUEST['featureType']);
-    echo $json;  
+    echo $json;
     die();
   }
 
@@ -323,7 +348,7 @@ class UpcqueryController {
 
     $nomenHelper = new NomenclatureHelper();
     $json = $nomenHelper->getFeatureLatLon($_REQUEST['featureId']);
-    echo $json;  
+    echo $json;
     die();
   }
 
@@ -389,7 +414,7 @@ class UpcqueryController {
 
     if (!isset($this->searchSelect) || !isset($this->searchId)) {return null;}
     $this->model->searchIdArray[$this->searchSelect] = $this->searchId;
-    if (!isset($this->model->groupBy)) { 
+    if (!isset($this->model->groupBy)) {
       $this->model->groupBy = 'starttime';
       $this->model->groupDir = 'ASC';
       $this->model->render = '100';
@@ -431,7 +456,7 @@ class UpcqueryController {
     //get upload
     $currentFile = new upcFileClass();
     $currentFile->getUploadedFile('mapTemplate');
-    
+
     //get wkt from map template
     $mapInfo = $currentFile->getWKTFromMapTemplateFile();
     $this->model->wkt = $mapInfo['astroBBWKT'];
@@ -470,7 +495,7 @@ class UpcqueryController {
 
     //grab wkt
     if ($wkt == '') {
-      $config = new Config(); 
+      $config = new Config();
       $wkt = $config->fullMapWKT;
     }
     $this->model->wkt = $wkt;
@@ -480,7 +505,7 @@ class UpcqueryController {
     $this->model->urlParams = '';
     $baseRequestVariables = array('target', 'queryText', 'astroBBWKT', 'queryType', 'showStats', 'maxResultsRendered', 'step', 'render', 'output', 'select', 'unselect', 'astroBBDatelineWKT','astroBBTopLeftLon','astroBBTopLeftLat','astroBBBotRightLat','astroBBBotRightLat', 'isisId', 'upcGlobalCoverage', 'limits', 'histogram', 'keyword');
     foreach ($_REQUEST as $rKey => $rVal) {
-      
+
       if ($rVal == '') {continue;} //don't create param if empty
       if (($act == 'ajaxDownload') && (strpos($rKey, 'stereo')) !== FALSE)
 	{continue;} //ignore stereo params on download
@@ -558,8 +583,8 @@ class UpcqueryController {
 
       //SPECIAL PROCESSING VARIABLES
       switch ($rKey) {
-      case 'downloadProductId':  
-	if ($_REQUEST['act'] != 'ajaxDownload') {break;} 
+      case 'downloadProductId':
+	if ($_REQUEST['act'] != 'ajaxDownload') {break;}
 	//fall through to productid!
       case 'productId':
       case 'productid':
