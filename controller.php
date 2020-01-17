@@ -74,7 +74,7 @@ class UpcqueryController {
     case 'faq':
       $this->scriptArray[] = $config->jqueryURL;
       break;
-    case ‘new_planets’:
+    case 'new_planets':
       $this->view = 'planets';
       $statsHelper = new StatsHelper();
       $this->model->stats = $statsHelper->getStats();
