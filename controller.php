@@ -78,7 +78,8 @@ class UpcqueryController {
       $this->view = 'planets';
       $statsHelper = new StatsHelper();
       $this->model->stats = $statsHelper->getStats();
-      $this->model->statsJSON = $statsHelper->getJSONStats();
+      //$this->model->statsJSON = $statsHelper->getJSONStats();
+      $this->model->statsJSON = json_decode(file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json"));
       $instrumentsHelper = new InstrumentsHelper();
       $this->model->missionLinks = $instrumentsHelper->getMissionLinks();
 
