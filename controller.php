@@ -77,10 +77,11 @@ class UpcqueryController {
     case 'new_planets':
       $this->view = 'planets';
       $statsHelper = new StatsHelper();
-      $this->model->stats = $statsHelper->getStats();
+      //$this->model->stats = $statsHelper->getStats();
       //$this->model->statsJSON = $statsHelper->getJSONStats();
       //$this->model->statsJSON = json_decode(file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json"));
 	  $this->model->statsJSON = file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json");
+	  //$this->model->statsJSON = $_POST["https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json"];
       $instrumentsHelper = new InstrumentsHelper();
       $this->model->missionLinks = $instrumentsHelper->getMissionLinks();
 
@@ -131,7 +132,7 @@ class UpcqueryController {
     }
 
     //process params
-    $this->processParams();
+    //$this->processParams();
 
     //execute act
     if (($act != '') && (method_exists($this,$act))) {
