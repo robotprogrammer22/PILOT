@@ -6,6 +6,7 @@
 		//var $result_number;
 		var $json = file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json");
 		
+		
 		function arrayFromJSON ($query)
 		{
 			/*
@@ -23,6 +24,9 @@
 			
 			
 			// this will return the names, maybe make another array of just the objects? or just use the json-> function?
+			// ORDER BY system, targetname, mission, instrument, start_date
+				// this is what get stats does, should I try to do something similar?
+			// make a filter method that goes through the whole list and then finds the one for that system? or target name?
 			$json_array = array();
 			$result_total = 0;
 			foreach($json->json_agg as $value)
