@@ -131,7 +131,7 @@ class UpcqueryController {
     }
 
     //process params
-    //$this->processParams();
+    $this->processParams();
 
     //execute act
     if (($act != '') && (method_exists($this,$act))) {
