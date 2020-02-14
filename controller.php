@@ -18,6 +18,7 @@ require_once(dirname(__FILE__) . '/model/keywords_metaHelper.php');
 require_once(dirname(__FILE__) . '/tools/loggingClass.php');
 require_once(dirname(__FILE__) . '/tools/nomenclatureClass.php');
 require_once(dirname(__FILE__) . '/tools/json.php');
+require_once(dirname(__FILE__) . '/tools/jsonFromURL.php');
 
 
 class UpcqueryController {
@@ -77,6 +78,8 @@ class UpcqueryController {
     case 'new_planets':
       $this->view = 'planets';
       $statsHelper = new StatsHelper();
+      $statsGet = new jsonFromURL();
+      $this->model->stats = $statsGet->arrayFromJSON();
       //$this->model->stats = $statsHelper->getStats();
       //$this->model->statsJSON = $statsHelper->getJSONStats();
 	  $this->model->statsJSON = file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json");
