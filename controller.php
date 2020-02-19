@@ -82,7 +82,8 @@ class UpcqueryController {
       $this->model->stats = $statsGet->arrayFromJSON();
       //$this->model->stats = $statsHelper->getStats();
       //$this->model->statsJSON = $statsHelper->getJSONStats();
-	  $this->model->statsJSON = file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json");
+      // $this->model->statsJSON = file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json");
+      $this->model->statsJSON = $statsGet->getJSON($this->model->stats);
 	  //$this->model->stats = 
       $instrumentsHelper = new InstrumentsHelper();
       $this->model->missionLinks = $instrumentsHelper->getMissionLinks();

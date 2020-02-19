@@ -8,13 +8,13 @@
 
 	  function __construct()
 	  {
-	    $this->json = file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json");
+	    $this->json = json_decode(file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json"));
 	  }
 
 
 		function arrayFromJSON ()
 		{
-		  //var $json = file_get_contents(https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json);
+		  $this->json = json_decode(file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json"));
 			/*
 			// code from multiDBQueryResultArray
 			$multiResult = array();
@@ -35,12 +35,24 @@
 			// make a filter method that goes through the whole list and then finds the one for that system? or target name?
 			$json_array = array();
 			$result_total = 0;
-			foreach($this->json->json_agg as $value)
+			//foreach($this->json->json_agg as $value)
+
+			//print_r($this->json[0]->json_agg);
+			$t_array = $this->json[0]->json_agg;
+
+			foreach($t_array as $value)
 			{
-			  $element_array = array('system'=>$value->system, 'targetname'=>$value->targetname, 'mission'=>$value->mission, 'instrument'=>$value->instrument, 'start_data'=>$value->start_date);
+			  $element_array = array('system'=>$value->system, 'targetname'=>$value->targetname, 'mission'=>$value->mission, 'instrument'=>$value->instrument, 'start_date'=>$value->start_date);
 			  array_push($json_array, $element_array);
 			}
+			print_r($json_array);
 			return($json_array);
+
+		}
+
+		function getJSON($object_array)
+		{
+		  json_encode($object_array);
 		}
 	}
 
