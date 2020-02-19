@@ -52,7 +52,7 @@
 
 		function getJSON($object_array)
 		{
-		  json_encode($object_array);
+		  return(json_encode($object_array));
 		}
 	}
 
