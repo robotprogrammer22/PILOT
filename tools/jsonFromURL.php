@@ -42,10 +42,10 @@
 
 			foreach($t_array as $value)
 			{
-			  $element_array = array('system'=>$value->system, 'targetname'=>$value->targetname, 'mission'=>$value->mission, 'instrument'=>$value->instrument, 'start_date'=>$value->start_date);
+			  $element_array = array('instrumentid'=>$value->instrumentid, 'targetid'=>$value->targetid, 'targetname'=>$value->targetname, 'system'=>$value->system, 'instrument'=>$value->instrument, 'mission'=>$value->mission, 'spacecraft'=>$value->spacecraft, 'displayname'=> $value->displayname, 'start_date'=>$value->start_date, 'stop_date'=>$value->stop_date, "last_published"=>$value->publish_date, 'bands'=>1, 'total'=>$value->image_count, 'errors'=>0);
 			  array_push($json_array, $element_array);
 			}
-			print_r($json_array);
+			//print_r($json_array);
 			return($json_array);
 
 		}
