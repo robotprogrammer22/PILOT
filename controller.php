@@ -1,3 +1,4 @@
+
 <?php
 
 /*
@@ -77,11 +78,12 @@ class UpcqueryController {
       break;
     case 'new_planets':
       $this->view = 'planets';
-      $statsHelper = new StatsHelper();
+      //$statsHelper = new StatsHelper();
       $statsGet = new jsonFromURL();
       $this->model->stats = $statsGet->arrayFromJSON();
       //$this->model->stats = $statsHelper->getStats();
       //$this->model->statsJSON = $statsHelper->getJSONStats();
+      // print_r($this->model->statsJSON);
       // $this->model->statsJSON = file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json");
       $this->model->statsJSON = $statsGet->getJSON($this->model->stats);
 	  //$this->model->stats = 

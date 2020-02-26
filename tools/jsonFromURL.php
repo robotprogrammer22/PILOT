@@ -54,6 +54,38 @@
 		{
 		  return(json_encode($object_array));
 		}
+
+		function orderedArray()
+		{
+		  // orders the array sent back for stats, which hopefully should fix stuff not showing up
+		  $planet_moon_array = array();
+		  $this->json = json_decode(file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json"));
+		  $object_array = $this->json[0]->json_agg;
+		  foreach($object_array as $value)
+		  {
+		    if (!in_array($value->targetname, $planet_moon_array))
+		    {
+		      array_push($value->targetname, $planet_moon_array);
+		    }
+		  }
+
+		  sort($planet_moon_array);
+
+		  $sorted_array = array();
+		  foreach($planet_moon_array as $object)
+		  {
+		    foreach($object_array as $value)
+		    {
+		      if ($value->targetname == $object)
+		      {
+			array_push($object, $sorted_array);
+		      }
+		    }
+		  }
+
+		  return $sorted_array;
+		}
+
 	}
 
 ?>
