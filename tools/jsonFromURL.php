@@ -13,7 +13,7 @@
 
 
 
-		function orderedArray()
+		function SortBySystem()
 		{
 		  // orders the array sent back for stats, which hopefully should fix stuff not showing up
 		  $planet_moon_array = array();
@@ -50,10 +50,26 @@
 		  return $sorted_array;
 		}
 
+		//function sortByTarget($currentArraySort, $originalArray)
+		//{
+		  // the current array sort is for the previous sort that was done, 
+		  // do I even need to do this?
+		//}
+
 		//function sort($array)
 		//{
 
 		//}
+
+
+		function orderedArray()
+		{
+		  $sorted_planet_array = array();
+		  $sorted_planet_array = $this->sortBySystem();
+		  // need to make the original array or get it as a parameter
+		  //$this->sortByTarget($sorted_planet_array, $originalArray);
+		  return $sorted_planet_array;
+		}
 
 
 		function arrayFromJSON ()
