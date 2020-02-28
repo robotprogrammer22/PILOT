@@ -12,6 +12,50 @@
 	  }
 
 
+
+		function orderedArray()
+		{
+		  // orders the array sent back for stats, which hopefully should fix stuff not showing up
+		  $planet_moon_array = array();
+		  $this->json = json_decode(file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json"));
+		  $object_array = $this->json[0]->json_agg;
+		  //print_r($object_array);
+		  foreach($object_array as $value)
+		  {
+		    //print_r($value->targetname);
+		    //if (!in_array($value->targetname, $planet_moon_array))
+		    if (!in_array($value->system, $planet_moon_array))
+		    {
+		      //array_push($planet_moon_array, $value->targetname);
+		      array_push($planet_moon_array, $value->system);
+		    }
+		  }
+
+		  sort($planet_moon_array);
+		  //print_r($planet_moon_array);
+
+		  $sorted_array = array();
+		  foreach($planet_moon_array as $object)
+		  {
+		    foreach($object_array as $value)
+		    {
+		      //if ($value->targetname == $object)
+		      if ($value->system == $object)
+		      {
+			array_push($sorted_array, $value);
+		      }
+		    }
+		  }
+
+		  return $sorted_array;
+		}
+
+		//function sort($array)
+		//{
+
+		//}
+
+
 		function arrayFromJSON ()
 		{
 		  $this->json = json_decode(file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json"));
@@ -40,7 +84,12 @@
 			//print_r($this->json[0]->json_agg);
 			$t_array = $this->json[0]->json_agg;
 
-			foreach($t_array as $value)
+			$planet_order_array = $this->orderedArray();
+			$planet_objects = json_decode(json_encode($planet_order_array));
+			print_r($planet_order_array);
+
+			//foreach($t_array as $value)
+			foreach($planet_objects as $value)
 			{
 			  $element_array = array('instrumentid'=>$value->instrumentid, 'targetid'=>$value->targetid, 'targetname'=>$value->targetname, 'system'=>$value->system, 'instrument'=>$value->instrument, 'mission'=>$value->mission, 'spacecraft'=>$value->spacecraft, 'displayname'=> $value->displayname, 'start_date'=>$value->start_date, 'stop_date'=>$value->stop_date, "last_published"=>$value->publish_date, 'bands'=>1, 'total'=>$value->image_count, 'errors'=>0);
 			  array_push($json_array, $element_array);
@@ -55,36 +104,6 @@
 		  return(json_encode($object_array));
 		}
 
-		function orderedArray()
-		{
-		  // orders the array sent back for stats, which hopefully should fix stuff not showing up
-		  $planet_moon_array = array();
-		  $this->json = json_decode(file_get_contents("https://pdsimage2.wr.usgs.gov/POW/UPC/volume_summary.json"));
-		  $object_array = $this->json[0]->json_agg;
-		  foreach($object_array as $value)
-		  {
-		    if (!in_array($value->targetname, $planet_moon_array))
-		    {
-		      array_push($value->targetname, $planet_moon_array);
-		    }
-		  }
-
-		  sort($planet_moon_array);
-
-		  $sorted_array = array();
-		  foreach($planet_moon_array as $object)
-		  {
-		    foreach($object_array as $value)
-		    {
-		      if ($value->targetname == $object)
-		      {
-			array_push($object, $sorted_array);
-		      }
-		    }
-		  }
-
-		  return $sorted_array;
-		}
 
 	}
 
