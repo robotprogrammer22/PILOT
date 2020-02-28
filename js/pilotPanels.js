@@ -75,14 +75,18 @@ function showSolarSystem(target) {
       if ((currentTargetName != null) && (targetName != currentTargetName)) {
 	planetKey = String(statsJSON[i]['system']).toUpperCase();
 	currentType = (planetKey == currentTargetName.toUpperCase()) ? 'planet' : 'moon';
+	console.log(currentType);
 	targetBar = '';
 	targetBar += '<span class="targetTitle" onclick="pilotSearch.enable(\''+ currentTargetName+ '\');" >'+ targetNameCap + '</span>';
 	targetBarTotal = '<span style="margin-right:5px;" class="upcSmallGray" id="total'+ currentTargetName + '"></span><br/>';
 	if (targetBarArray[planetKey] == undefined) {targetBarArray[planetKey] = '';}
 	if (currentType == 'planet') {
+	    //console.log(targetBarArray[planetKey]);
 	  targetBar +=  targetBarTotal;
+	  //console.log(targetBarArray[planetKey]);
 	  targetBarArray[planetKey] = '<span id="'+ currentTargetName + 'Bar" class="barPlanet"  >' + targetBar + '</span>' + targetBarArray[planetKey];
 	} else {
+	    console.log("else");
 	  targetBar += '<span>' + targetBarTotal + '</span>';
 	  targetBarArray[planetKey] += '<span id="' + currentTargetName + 'Bar" class="barMoon" style="" ><!--<img style="float:left;margin-right:30px;" src="images/bar-moon-left.png"/><img style="float:right;" src="images/bar-moon-right.png"/>-->' + targetBar + '</span>';
 	}
@@ -92,7 +96,8 @@ function showSolarSystem(target) {
       targetTotal[currentTargetName] = (Number(targetTotal[currentTargetName]) + Number(statsJSON[i]['total']));
   }
 
-  var planetOrder = ['MERCURY','VENUS','EARTH','MARS','JUPITER','SATURN','SMALL BODIES','URANUS','NEPTUNE'];
+    var planetOrder = ['MERCURY','VENUS','EARTH','MARS','JUPITER','SATURN','SMALL BODIES','URANUS','NEPTUNE'];
+  //  var planetOrder = ['JUPITER', 'MARS', 'EUROPA'];
   var  barCount = 0;
   var barDiv = '#barChooserLeft';
   for (var j=0; j< planetOrder.length; j++) {
