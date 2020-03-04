@@ -102,7 +102,7 @@
 
 			$planet_order_array = $this->orderedArray();
 			$planet_objects = json_decode(json_encode($planet_order_array));
-			print_r($planet_order_array);
+			//print_r($planet_order_array);
 
 			//foreach($t_array as $value)
 			foreach($planet_objects as $value)

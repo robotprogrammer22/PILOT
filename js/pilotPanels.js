@@ -75,7 +75,7 @@ function showSolarSystem(target) {
       if ((currentTargetName != null) && (targetName != currentTargetName)) {
 	planetKey = String(statsJSON[i]['system']).toUpperCase();
 	currentType = (planetKey == currentTargetName.toUpperCase()) ? 'planet' : 'moon';
-	console.log(currentType);
+	//console.log(currentType);
 	targetBar = '';
 	targetBar += '<span class="targetTitle" onclick="pilotSearch.enable(\''+ currentTargetName+ '\');" >'+ targetNameCap + '</span>';
 	targetBarTotal = '<span style="margin-right:5px;" class="upcSmallGray" id="total'+ currentTargetName + '"></span><br/>';
@@ -86,7 +86,7 @@ function showSolarSystem(target) {
 	  //console.log(targetBarArray[planetKey]);
 	  targetBarArray[planetKey] = '<span id="'+ currentTargetName + 'Bar" class="barPlanet"  >' + targetBar + '</span>' + targetBarArray[planetKey];
 	} else {
-	    console.log("else");
+	    //console.log("else");
 	  targetBar += '<span>' + targetBarTotal + '</span>';
 	  targetBarArray[planetKey] += '<span id="' + currentTargetName + 'Bar" class="barMoon" style="" ><!--<img style="float:left;margin-right:30px;" src="images/bar-moon-left.png"/><img style="float:right;" src="images/bar-moon-right.png"/>-->' + targetBar + '</span>';
 	}
@@ -119,7 +119,6 @@ function showSolarSystem(target) {
   }
 
   $('<span/>', {id: 'UnknownBar', 'class': 'barPlanet', html: '<span class="targetTitle" onclick="pilotSearch.enable(\'untargeted\');" >Untargeted Images</span>'}).appendTo($('#barChooserRight'));
-
 
 };
 
@@ -238,7 +237,8 @@ function showMissions(target) {
     currentTarget = missionList[i]['targetname'];
     yearString = '';
     if (currentTarget && (currentTarget.toLowerCase() == target)) {
-      mission = (missionList[i]['mission']) ? missionList[i]['mission'] : 'Untargeted';
+      //mission = (missionList[i]['mission']) ? missionList[i]['mission'] : 'Untargeted';
+      mission = (missionList[i]['spacecraft']) ? missionList[i]['spacecraft'] : 'Untargeted';
       missionClean = mission.replace(/\W/g, '');
       if (currentMission != mission) {
 	if (missionList[i]['start_date']) {
@@ -252,7 +252,8 @@ function showMissions(target) {
 	  '<span style="margin-left:10px;" >' + yearString + '</span><a target="_blank" href="' + missionLinks[missionList[i]['mission']] + '"><img src="images/infoLink.png" alt="PDS Mission Page" title="PDS Mission Page" class="infoLinkIcon" style="margin-top:3px;"  /></a></span></td></tr>';
 	currentMission = mission;
       }
-      currentI = (missionList[i]['displayname']) ? missionList[i]['displayname'] : 'Untargeted';
+      //currentI = (missionList[i]['displayname']) ? missionList[i]['displayname'] : 'Untargeted';
+      currentI = (missionList[i]['instrument']) ? missionList[i]['instrument'] : 'Untargeted';
       currentId = missionList[i]['instrumentid'];
       currentT = Number(missionList[i]['total']) - Number(missionList[i]['errors']);
       currentE = Number(missionList[i]['errors']);
