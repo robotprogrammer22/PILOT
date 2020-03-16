@@ -20,6 +20,7 @@ require_once(dirname(__FILE__) . '/tools/loggingClass.php');
 require_once(dirname(__FILE__) . '/tools/nomenclatureClass.php');
 require_once(dirname(__FILE__) . '/tools/json.php');
 require_once(dirname(__FILE__) . '/tools/jsonFromURL.php');
+require_once(dirname(__FILE__) . '/tools/histogram.php');
 
 
 class UpcqueryController {
@@ -107,6 +108,8 @@ class UpcqueryController {
       $this->scriptArray[] = 'js/pilotStereo.js';
       //die("I am here");
       //echo("new page");
+      //echo($this->target);
+      //print_r($this->model);
       break;
     case 'map':  //deprecated
     case 'planets':
@@ -288,8 +291,12 @@ class UpcqueryController {
   //
   function histogramAjaxGet() {
     //grab histogram for instrument/keyword
-    $histoHelper = new HistogramHelper($this->target);
-    $output = $histoHelper->get($this->model->histogram, $this->model->keyword);
+    //$histoHelper = new HistogramHelper($this->target);
+    $newHistogram = new histogram($this->statsJSON);
+    //$output = $histoHelper->get($this->model->histogram, $this->model->keyword);
+    //$output = $newHistogram->getDate();
+    //print_r($output);
+    print_r("get");
     echo $output;
     die();
   }
@@ -298,15 +305,21 @@ class UpcqueryController {
   function missionStatsAjaxGet() {
     //grab stats on instrument
     $keywords = array('starttime','processdate','meangroundresolution');
-    $histoHelper = new HistogramHelper($this->target);
-    $output = '';
+    //$histoHelper = new HistogramHelper($this->target);
+    //print_r($this->statsJSON);
+    print_r("get stats");
+    $histoHelpter = new histogram($this->statsJSON);
+    //$output = '';
+    /*
     foreach ($keywords as $key) {
       $histogram = $histoHelper->get($this->model->histogram, $key);
       if ($histogram != '') {
 	$output .= ($output == '') ? '' : ',';
 	$output .= $histogram;
       }
-    }
+      }*/
+    $output = $histogram->getDate();
+    print_r($output);
     echo '[' . $output . ']';
     die();
   }
